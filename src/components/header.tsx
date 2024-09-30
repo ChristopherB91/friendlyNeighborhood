@@ -6,12 +6,12 @@ import { useState } from "react";
 import "../App.css";
 
 function Header() {
-  const [display, setDisplay] = useState("active");
-  const [hidden, setHidden] = useState("inactive");
+  const [miles, setMiles] = useState("active");
+  const [peter, setPeter] = useState("inactive");
 
   const switcher = () => {
-    setDisplay(hidden);
-    setHidden(display);
+    setPeter(miles);
+    setMiles(peter);
   };
 
   return (
@@ -24,8 +24,8 @@ function Header() {
           <img src={battery} alt="battery img" />
         </div>
       </div>
-      <img className={display} src={Miles} alt="MilesSM image" />
-      <img className={hidden} src={Peter} alt="PeterSM image" />
+      <img className={miles} src={Miles} alt="MilesSM image" />
+      <img className={peter} src={Peter} alt="PeterSM image" />
       <div className="seperator"></div>
     </>
   );

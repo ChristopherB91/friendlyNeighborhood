@@ -3,13 +3,18 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100dvh;
   width: 459px;
+  background-color: hsl(210, 46%, 5%);
 }
 
 #root {
   max-width: 100%;
+  height: max-content;
   margin: 0;
   padding: 0;
 }
@@ -72,8 +77,15 @@ h1 {
 .taskSelect {
   display: flex;
   justify-content: space-evenly;
+  background: rgb(129, 139, 149);
+  background: linear-gradient(
+    180deg,
+    rgb(93, 99, 105) 0%,
+    rgba(7, 13, 19, 1) 10%,
+    rgba(0, 0, 0, 1) 100%
+  );
   background-color: hsl(210, 46%, 5%);
-  border: solid hsl(0, 100%, 50%, 60%) 1px;
+  border: solid hsl(0, 100%, 50%, 60%) 2px;
 }
 
 button {
@@ -91,24 +103,36 @@ button {
 
 /* TaskList */
 
-.lowp {
-  position: relative;
-}
-
 .low {
   max-width: 100%;
-  height: 30.2vh;
+  height: 34.1vh;
   background-color: hsla(218, 44%, 14%, 0.975);
-  border: solid hsl(0, 100%, 50%, 60%) 1px;
-  overflow: auto;
+  border: solid hsl(0, 100%, 50%, 60%) 2px;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  /* overflow: auto; */
+}
+
+.low::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
 
 .outer {
   height: 8vh;
   background-color: hsl(210, 46%, 5%);
+  background: rgb(129, 139, 149);
+  background: linear-gradient(
+    180deg,
+    rgb(93, 99, 105) 0%,
+    rgba(7, 13, 19, 1) 10%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-top: solid hsl(0, 100%, 50%, 60%);
 }
 
 /* Activities */
+
 ul {
   display: flex;
   justify-content: space-between;

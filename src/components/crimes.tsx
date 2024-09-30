@@ -2,39 +2,39 @@ import "../App.css";
 
 export const Crime = () => {
   const crimes: {
-    description: string;
-    name?: string;
-    distanceM: number | string;
-    report: string;
-    id: number | string;
+    ID: number;
+    Title: string;
+    Report: string;
+    Name?: string;
+    Distance: number;
   }[] = [
     {
-      description: "Selfie",
-      name: "Chris",
-      distanceM: 1234,
-      report: "can I get a selfie lol",
-      id: 0,
+      Title: "Selfie",
+      Name: "Chris",
+      Distance: 1234,
+      Report: "can I get a selfie lol",
+      ID: 0,
     },
     {
-      description: "Missing Car",
-      name: "Alex",
-      report: "my car got stolen can you help me out, it brick out here",
-      distanceM: 234,
-      id: 1,
+      Title: "Missing Car",
+      Name: "Alex",
+      Report: "my car got stolen can you help me out, it brick out here",
+      Distance: 234,
+      ID: 1,
     },
     {
-      description: "Missing Cat",
-      name: "Teo",
-      report: "help me find Spider-Man",
-      distanceM: 562,
-      id: 2,
+      Title: "Missing Cat",
+      Name: "Teo",
+      Report: "help me find SpIDer-Man",
+      Distance: 562,
+      ID: 2,
     },
     {
-      description: "Missing Pigeons",
-      name: "Howard",
-      report: "my birds are missing. I really miss pidgey ",
-      distanceM: 361,
-      id: 3,
+      Title: "Missing Pigeons",
+      Name: "Howard",
+      Report: "my birds are missing. I really miss pIDgey ",
+      Distance: 361,
+      ID: 3,
     },
   ];
 
@@ -42,9 +42,9 @@ export const Crime = () => {
     <>
       {crimes.map((crime) => {
         return (
-          <ul className="crime" key={crime.id}>
-            <li className="aDesc">{crime.description}</li>
-            <li className="aDistance"> | {crime.distanceM} M</li>
+          <ul className="crime" key={crime.ID}>
+            <li className="aDesc">{crime.Title}</li>
+            <li className="aDistance"> | {crime.Distance} M</li>
           </ul>
         );
       })}
