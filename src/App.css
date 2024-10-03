@@ -88,6 +88,13 @@ h1 {
   border: solid hsl(0, 100%, 50%, 60%) 2px;
 }
 
+.taskSelect button {
+  position: relative;
+  padding: 10px 20px;
+  z-index: 1;
+  transition: 0.3s;
+}
+
 button {
   all: unset;
   display: inline-block;
@@ -105,7 +112,7 @@ button {
 
 .low {
   max-width: 100%;
-  height: 34.1vh;
+  height: 30vh;
   background-color: hsla(218, 44%, 14%, 0.975);
   border: solid hsl(0, 100%, 50%, 60%) 2px;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */

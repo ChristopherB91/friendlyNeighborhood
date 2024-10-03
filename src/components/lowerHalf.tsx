@@ -16,11 +16,10 @@ export default function TaskList() {
   };
 
   return (
-    <div id="no-scrollbar" className="lowp">
+    <div className="lowp">
       <Selection swipeA={swipeA} swipeC={swipeC} />
-      <div className="low">
-        <span>{activity ? <Activity /> : <Crime />}</span>
-      </div>
+      <div className="low">{activity ? <Activity /> : <Crime />}</div>
+      <span></span>
       <div className="outer"></div>
     </div>
   );

@@ -7,6 +7,7 @@ export const Activity = () => {
     distanceM: number | string;
     report: string;
     id: number | string;
+    spider: string;
   }[] = [
     {
       description: "Selfie",
@@ -14,6 +15,7 @@ export const Activity = () => {
       distanceM: 1234,
       report: "can I get a selfie lol",
       id: 0,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Car",
@@ -21,6 +23,7 @@ export const Activity = () => {
       report: "my car got stolen can you help me out, it brick out here",
       distanceM: 234,
       id: 1,
+      spider: "@BKLYNSpider42",
     },
     {
       description: "Missing Cat",
@@ -28,6 +31,7 @@ export const Activity = () => {
       report: "help me find Spider-Man",
       distanceM: 562,
       id: 2,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Pigeons",
@@ -35,6 +39,7 @@ export const Activity = () => {
       report: "my birds are missing. I really miss pidgey ",
       distanceM: 361,
       id: 3,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Pigeons",
@@ -42,6 +47,7 @@ export const Activity = () => {
       report: "my birds are missing. I really miss pidgey ",
       distanceM: 361,
       id: 4,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Pigeons",
@@ -49,6 +55,7 @@ export const Activity = () => {
       report: "my birds are missing. I really miss pidgey ",
       distanceM: 361,
       id: 5,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Pigeons",
@@ -56,6 +63,7 @@ export const Activity = () => {
       report: "my birds are missing. I really miss pidgey ",
       distanceM: 361,
       id: 6,
+      spider: "@NYCWallCrawler",
     },
     {
       description: "Missing Pigeons",
@@ -63,6 +71,7 @@ export const Activity = () => {
       report: "my birds are missing. I really miss pidgey ",
       distanceM: 361,
       id: 7,
+      spider: "@NYCWallCrawler",
     },
   ];
 
