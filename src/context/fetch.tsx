@@ -31,6 +31,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
         setError("Error fetching data");
       } finally {
         setLoading(false);
+        console.log(data);
       }
     };
     fetchData();
