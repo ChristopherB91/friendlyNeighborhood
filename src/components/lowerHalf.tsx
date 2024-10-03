@@ -19,7 +19,6 @@ export default function TaskList() {
     <div className="lowp">
       <Selection swipeA={swipeA} swipeC={swipeC} />
       <div className="low">{activity ? <Activity /> : <Crime />}</div>
-      <span></span>
       <div className="outer"></div>
     </div>
   );
