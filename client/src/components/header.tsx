@@ -55,7 +55,7 @@ function Header() {
           <button onClick={formTest}>+</button>
         )}
       </div>
-      <div className="seperator"></div>
+      <div className="seperator">Hello</div>
     </>
   );
 }

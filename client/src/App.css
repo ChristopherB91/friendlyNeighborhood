@@ -226,11 +226,14 @@ ul {
   display: block;
 }
 
-.dNu {
-  display: none;
-  color: white;
-}
-
 .dNu button {
   padding: 5px;
+  color: white;
+  background-color: black;
+  border: solid white 5px;
+  display: none;
+}
+
+.activites:hover ~ .dNu {
+  display: block;
 }

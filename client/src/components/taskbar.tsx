@@ -14,11 +14,15 @@ const Selection: React.FC<ChildProps> = (props) => {
   const [track, setTrack] = useState(false);
   const [activities, setActivities] = useState<string>(aSelected);
   const [crimes, setCrimes] = useState<string>(cUnselected);
+  const butn = document.querySelector("#slide") as HTMLElement;
+  const txt1 = document.querySelector("#txt1") as HTMLElement;
+  const txt2 = document.querySelector("#txt2") as HTMLElement;
   const moveRight = () => {
-    const butn = document.querySelector("#slide") as HTMLElement | null;
-    if (butn != null) {
+    if (butn && txt1 != null) {
       if (!track) {
         butn.style.left = "270px";
+        txt1.style.color = "#bfe3ff";
+        txt2.style.color = "white";
         setTrack(true);
         setCrimes(cSelected);
         setActivities(aUnselected);
@@ -30,15 +34,14 @@ const Selection: React.FC<ChildProps> = (props) => {
   };
 
   const moveLeft = () => {
-    const butn = document.querySelector("#slide") as HTMLElement | null;
-    if (butn) {
-      if (track) {
-        butn.style.left = "87px";
-        setTrack(false);
-        setActivities(aSelected);
-        setCrimes(cUnselected);
-        props.swipeA();
-      }
+    if (track) {
+      butn.style.left = "87px";
+      txt1.style.color = "white";
+      txt2.style.color = "#bfe3ff";
+      setTrack(false);
+      setActivities(aSelected);
+      setCrimes(cUnselected);
+      props.swipeA();
     } else {
       console.error("error");
     }
