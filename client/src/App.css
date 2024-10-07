@@ -225,3 +225,12 @@ ul {
 .activites:hover ~ .seperator {
   display: block;
 }
+
+.dNu {
+  display: none;
+  color: white;
+}
+
+.dNu button {
+  padding: 5px;
+}

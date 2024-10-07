@@ -1,5 +1,7 @@
-import activitiesUnselected from "../assets/activitiesLogoUnselected.png";
-import crimesUnselected from "../assets/crimeLogoUnselected.png";
+import aUnselected from "../assets/activitiesLogoUnselected.png";
+import cUnselected from "../assets/crimeLogoUnselected.png";
+import aSelected from "../assets/activitiesLogoSelected.png";
+import cSelected from "../assets/crimesLogoSelected.png";
 import "../App.css";
 import { useState } from "react";
 
@@ -10,12 +12,16 @@ interface ChildProps {
 
 const Selection: React.FC<ChildProps> = (props) => {
   const [track, setTrack] = useState(false);
+  const [activities, setActivities] = useState<string>(aSelected);
+  const [crimes, setCrimes] = useState<string>(cUnselected);
   const moveRight = () => {
     const butn = document.querySelector("#slide") as HTMLElement | null;
     if (butn != null) {
       if (!track) {
         butn.style.left = "270px";
         setTrack(true);
+        setCrimes(cSelected);
+        setActivities(aUnselected);
         props.swipeC();
       }
     } else {
@@ -29,6 +35,8 @@ const Selection: React.FC<ChildProps> = (props) => {
       if (track) {
         butn.style.left = "87px";
         setTrack(false);
+        setActivities(aSelected);
+        setCrimes(cUnselected);
         props.swipeA();
       }
     } else {
@@ -39,11 +47,11 @@ const Selection: React.FC<ChildProps> = (props) => {
   return (
     <div className="taskSelect">
       <button onClick={moveLeft}>
-        <img src={activitiesUnselected} alt="activity logo" />
+        <img src={activities} alt="activity logo" />
         <h1 id="txt1">ACTIVITIES</h1>
       </button>
       <button onClick={moveRight}>
-        <img src={crimesUnselected} alt="crimes logo" />
+        <img src={crimes} alt="crimes logo" />
         <h1 id="txt2">CRIMES</h1>
       </button>
       <span id="slide"></span>

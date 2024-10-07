@@ -22,7 +22,7 @@ const Form: React.FC = () => {
     title: "",
     report: "",
     name: "",
-    distance: 0,
+    distance: Math.floor(Math.random() * 2000),
     spider: "",
   });
 
@@ -66,12 +66,6 @@ const Form: React.FC = () => {
       name: "name",
     },
     {
-      label: "Distance",
-      placeholder: "required",
-      type: "text",
-      name: "distance",
-    },
-    {
       label: "Spider",
       placeholder: "spider",
       type: "",
@@ -101,7 +95,6 @@ const Form: React.FC = () => {
                 placeholder={question.placeholder}
                 required={question.placeholder === "Required"}
                 onChange={change}
-                // value={formData[question.name as keyof data] || ""}
                 autoFocus={question.name === "title"}
               />
             )}

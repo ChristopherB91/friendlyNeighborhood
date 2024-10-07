@@ -41,14 +41,16 @@ export const Activity = () => {
     <>
       {data.map((request: FNSMRequest) => {
         return (
-          <ul className="activities" key={request.id}>
-            <li className="aDesc">{request.title}</li>
-            <li className="aDistance"> | {request.distance} M</li>
-            <div className="dNU">
+          <>
+            <ul className="activities" key={request.id}>
+              <li className="aDesc">{request.title}</li>
+              <li className="aDistance"> | {request.distance} M</li>
+            </ul>
+            <div className="dNu">
               <button onClick={() => remove(request.id)}>DELETE</button>
               <button onClick={() => updFunc(request.id)}>UPDATE</button>
             </div>
-          </ul>
+          </>
         );
       })}
     </>
