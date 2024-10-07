@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
 import axios from "axios";
 
 interface FNSMRequest {
@@ -15,6 +15,10 @@ interface DataContextType {
   loading: boolean;
   error: string | null;
   baseUrl: string;
+  update: boolean;
+  setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+  num: number;
+  setNum: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface DataProviderProps {
@@ -29,6 +33,8 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   const [data, setData] = useState<FNSMRequest[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [update, setUpdate] = useState<boolean>(false);
+  const [num, setNum] = useState<number>(0);
   const baseUrl: string = "http://localhost:8080/fnsm";
 
   useEffect(() => {
@@ -48,7 +54,9 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, error, loading, baseUrl }}>
+    <DataContext.Provider
+      value={{ data, error, loading, baseUrl, update, setUpdate, num, setNum }}
+    >
       {children}
     </DataContext.Provider>
   );

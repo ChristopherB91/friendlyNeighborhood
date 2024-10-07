@@ -12,7 +12,12 @@ function Header() {
   const [hidden, setHidden] = useState("inactive");
   const [form, setForm] = useState(false);
 
-  const { data } = useContext(DataContext);
+  const context = useContext(DataContext);
+  if (!context) {
+    throw new Error("null");
+  }
+
+  const { update, setUpdate } = context;
 
   const switcher = () => {
     setHidden(display);
@@ -24,6 +29,7 @@ function Header() {
       setForm(true);
     } else {
       setForm(false);
+      setUpdate(false);
     }
   };
 
@@ -40,7 +46,7 @@ function Header() {
       <div className="parent">
         <img className={display} src={Miles} alt="MilesSM image" />
         <img className={hidden} src={Peter} alt="PeterSM image" />
-        {form ? (
+        {form || update ? (
           <>
             <button onClick={formTest}>-</button>
             <Form />
@@ -49,7 +55,7 @@ function Header() {
           <button onClick={formTest}>+</button>
         )}
       </div>
-      <div className="seperator">{data.report}</div>
+      <div className="seperator"></div>
     </>
   );
 }

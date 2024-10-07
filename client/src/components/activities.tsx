@@ -15,19 +15,26 @@ interface FNSMRequest {
 export const Activity = () => {
   const context = useContext(DataContext);
   if (!context) {
-    throw new Error("Activity must be used within a DataProvider");
+    throw new Error("null");
   }
 
-  const { data, loading, error, baseUrl } = context;
+  const { data, loading, error, baseUrl, setUpdate, setNum } = context;
   const remove = async (id: number) => {
     try {
       const response = await axios.delete(`${baseUrl}/delRequest/${id}`);
       window.alert(response.data);
+      window.location.reload();
     } catch (error) {
       window.alert(error);
       window.location.reload();
     }
   };
+
+  const updFunc = (id: number) => {
+    setUpdate(true);
+    setNum(id);
+  };
+
   if (loading) return <p className="lne">loading...</p>;
   if (error) return <p className="lne">error</p>;
   return (
@@ -39,7 +46,7 @@ export const Activity = () => {
             <li className="aDistance"> | {request.distance} M</li>
             <div className="dNU">
               <button onClick={() => remove(request.id)}>DELETE</button>
-              <button>UPDATE</button>
+              <button onClick={() => updFunc(request.id)}>UPDATE</button>
             </div>
           </ul>
         );

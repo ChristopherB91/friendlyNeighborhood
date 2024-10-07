@@ -12,7 +12,11 @@ interface FNSMRequest {
 }
 
 const Form: React.FC = () => {
-  const { data, baseUrl } = useContext(DataContext);
+  const context = useContext(DataContext);
+  if (!context) {
+    throw new Error("Activity must be used within a DataProvider");
+  }
+  const { data, baseUrl, update, num } = context;
   const [formData, setFormData] = useState<FNSMRequest>({
     id: 0,
     title: "",
@@ -32,8 +36,8 @@ const Form: React.FC = () => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     try {
-      const response = upd
-        ? await axios.put(`${baseUrl}/updRequest/${data.id}`, formData)
+      const response = update
+        ? await axios.put(`${baseUrl}/updRequest/${data[num].id}`, formData)
         : await axios.post(`${baseUrl}/addRequest`, formData);
       window.alert(response.data);
     } catch (error) {
@@ -60,6 +64,12 @@ const Form: React.FC = () => {
       placeholder: "optional",
       type: "text",
       name: "name",
+    },
+    {
+      label: "Distance",
+      placeholder: "required",
+      type: "text",
+      name: "distance",
     },
     {
       label: "Spider",
@@ -91,7 +101,7 @@ const Form: React.FC = () => {
                 placeholder={question.placeholder}
                 required={question.placeholder === "Required"}
                 onChange={change}
-                value={formData[question.name as keyof data] || ""}
+                // value={formData[question.name as keyof data] || ""}
                 autoFocus={question.name === "title"}
               />
             )}
