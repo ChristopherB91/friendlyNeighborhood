@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/fetch";
 
 interface FNSMRequest {
@@ -17,13 +17,18 @@ const Form: React.FC = () => {
     throw new Error("Activity must be used within a DataProvider");
   }
   const { data, baseUrl, update, num } = context;
+
+  useEffect(() => {
+    if (update) setFormData({ ...data[num] });
+  }, [update, num, data]);
+
   const [formData, setFormData] = useState<FNSMRequest>({
     id: 0,
     title: "",
     report: "",
     name: "",
     distance: Math.floor(Math.random() * 2000),
-    spider: "",
+    spider: "@BKLYNSpider",
   });
 
   const change = (e: React.FormEvent<HTMLInputElement>) => {
@@ -78,13 +83,23 @@ const Form: React.FC = () => {
       {questions.map((question, index) => {
         return (
           <div>
-            <label htmlFor={question.name}>{question.label}</label>
+            <label key={index} htmlFor={question.name}>
+              {question.label}
+            </label>
             <br />
 
             {question.label == "Spider" ? (
-              <select>
-                <option value="milesTwitter">@BKLYNSpider</option>
-                <option value="petersTwitter">@NYCWallCrawler</option>
+              <select onChange={() => change}>
+                <option
+                  value={formData[question.name as keyof FNSMRequest] || ""}
+                >
+                  @BKLYNSpider
+                </option>
+                <option
+                  value={formData[question.name as keyof FNSMRequest] || ""}
+                >
+                  @NYCWallCrawler
+                </option>
               </select>
             ) : (
               <input
@@ -95,6 +110,7 @@ const Form: React.FC = () => {
                 placeholder={question.placeholder}
                 required={question.placeholder === "Required"}
                 onChange={change}
+                value={formData[question.name as keyof FNSMRequest] || ""}
                 autoFocus={question.name === "title"}
               />
             )}

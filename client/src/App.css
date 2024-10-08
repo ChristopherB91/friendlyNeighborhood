@@ -40,10 +40,11 @@ body {
   position: absolute;
   padding: 10px 15px;
   border-radius: 35px;
-  background-color: white;
+  border: solid red 5px;
+  background-color: black;
+  color: red;
   right: 15px;
   top: 12px;
-  color: black;
 }
 
 .phoneStatus p {
@@ -81,7 +82,12 @@ img {
   max-width: 100%;
   height: auto;
   padding: 1rem;
-  color: #dd0f26;
+}
+
+.seperator p {
+  color: white;
+  font-size: x-small;
+  display: none;
 }
 
 /*  FORM  */
@@ -92,10 +98,23 @@ img {
   align-items: center;
   position: absolute;
   top: 0px;
+  padding: 18px;
+  background: hsla(218, 44%, 5%, 0.65);
 }
 
 .form button {
   position: relative;
+}
+
+.form input {
+  border-radius: 20px;
+  border: solid red 5px;
+  background-color: black;
+  color: red;
+}
+
+.form label {
+  color: #dd0f26;
 }
 
 /* Taskbar select */
@@ -156,6 +175,7 @@ h1 {
 .taskSelect button:nth-child(2):hover ~ span {
   left: 270px;
 }
+
 .taskSelect button {
   position: relative;
   padding: 10px 20px;
@@ -214,6 +234,7 @@ ul {
   color: white;
   padding: 0;
   list-style: none;
+  font-size: large;
 }
 
 .lne {
@@ -222,18 +243,13 @@ ul {
   font-size: xx-large;
 }
 
-.activites:hover ~ .seperator {
+.activities:hover ~ .seperator p {
   display: block;
 }
 
 .dNu button {
   padding: 5px;
-  color: white;
+  color: red;
   background-color: black;
-  border: solid white 5px;
-  display: none;
-}
-
-.activites:hover ~ .dNu {
-  display: block;
+  border: solid red 5px;
 }

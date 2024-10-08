@@ -32,7 +32,7 @@ export const Activity = () => {
 
   const updFunc = (id: number) => {
     setUpdate(true);
-    setNum(id);
+    setNum(data.findIndex((item) => item.id === id));
   };
 
   if (loading) return <p className="lne">loading...</p>;
