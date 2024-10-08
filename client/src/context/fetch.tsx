@@ -35,7 +35,7 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [update, setUpdate] = useState<boolean>(false);
   const [num, setNum] = useState<number>(0);
-  const baseUrl: string = "http://localhost:8080/fnsm";
+  const baseUrl: string = "http://localhost:8080/requests";
 
   useEffect(() => {
     const fetchData = async () => {

@@ -47,7 +47,7 @@ const Form: React.FC = () => {
       window.alert(response.data);
     } catch (error) {
       e.preventDefault();
-      window.alert(`Error injectiing alien DNA, ${error}`);
+      window.alert(`Error updating request, ${error}`);
     }
   };
 
